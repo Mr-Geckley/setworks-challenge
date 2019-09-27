@@ -7,10 +7,183 @@
     <title>Document</title>
   </head>
   <body>
+    <!-- header -->
+    <h1>SETWORKS AGENCY, INC.</h1>
+    <h2>INFORMATION ABOUT MEDICATIONS</h2>
+
+    <!-- required fields disclaimer-->
+    <p>Required fields are followed by <abbr title="required">*</abbr>.</p>
+
     <form action="">
+      <!-- client name field -->
+      <div class="client-name">
+        <label for="client-name"
+          >Client name:
+          <abbr title="required" aria-label="required">*</abbr></label
+        >
+        <input id="client-name" type="text" name="client-name" />
+      </div>
+      <!-- client name field END -->
+
+      <!-- name of medication field -->
+      <div class="rx-name">
+        <label for="rx-name"
+          >Name of medication:
+          <abbr title="required" aria-label="required">*</abbr></label
+        >
+        <input id="rx-name" type="text" name="rx-name" />
+      </div>
+      <!-- name of medication field END-->
+
+      <!-- dosage unit and quantity field -->
+      <div class="dose-unit-and-quant">
+        <!-- dose-unit -->
+        <fieldset>
+          <legend>
+            Is this medication administered in milligrams or milliliters?
+            <abbr title="required" aria-label="required">*</abbr>
+          </legend>
+
+          <!-- mg radio -->
+          <div>
+            <label for="milligrams"><abbr title="milligrams">mg</abbr></label>
+            <input
+              type="radio"
+              id="milligrams"
+              name="dose-unit-of-meas"
+              value="milligrams"
+            />
+          </div>
+          <!-- mL radio -->
+          <div>
+            <label for="milliliters"><abbr title="milliliters">mL</abbr></label>
+            <input
+              type="radio"
+              id="milliliters"
+              name="dose-unit-of-meas"
+              value="milliliters"
+            />
+          </div>
+        </fieldset>
+
+        <!-- quant-of-dose -->
+        <div>
+          <label for="quant-of-dose"
+            >What is the dosage of this medication?
+            <abbr title="required" aria-label="required">*</abbr></label
+          >
+          <input
+            type="number"
+            step="0.25"
+            id="quant-of-dose"
+            name="quant-of-dose"
+          />
+        </div>
+      </div>
+      <!-- dosage unit and quantity field END -->
+
+      <!-- number and time of dose field -->
+      <div class="rx-times">
+        <!-- number of doses -->
+        <div class="num-of-dose">
+          <label for="number-of-dose"
+            >How many times a day is this medication taken?
+            <abbr title="required" aria-label="required">*</abbr></label
+          >
+          <input
+            id="number-of-dose"
+            type="number"
+            name="number-of-dose"
+            step="1"
+            value="1"
+          />
+        </div>
+
+        <!-- times of doses, come back and add update number of date pickers per number of doses input above -->
+        <div class="time-of-dose">
+          <label for="time-of-dose"
+            >At what time(s) should the medication be given?
+            <abbr title="required" aria-label="required">*</abbr></label
+          >
+          <p><strong>Note: </strong>24 hour HH:MM format</p>
+          <input
+            type="text"
+            name="time-of-dose"
+            id="time-of-dose"
+            pattern="^(0[0-9]|1[0-9]|2[0-3]|[0-9]):[0-5][0-9]$"
+            value="00:00"
+          />
+        </div>
+      </div>
+      <!-- dosage unit and quantity field END -->
+
+      <!-- special instructions for rx -->
+      <div class="spec-instruct">
+        <label for="spec-instruct"
+          >Special instructions for taking this medication:
+        </label>
+        <div>
+          <textarea
+            name="spec-instruct"
+            id="spec-instruct"
+            cols="30"
+            rows="10"
+          ></textarea>
+        </div>
+      </div>
+      <!-- special instructions for rx END-->
+
+      <!-- who admin's rx -->
       <fieldset>
-        <legend></legend>
+        <legend>
+          Is this medication self-administered or not?
+          <abbr title="required" aria-label="required">*</abbr>
+        </legend>
+
+        <!-- yes -->
+        <div>
+          <label for="yes-self-admin"
+            >Yes, supervise the client's self-administration of the
+            medication</label
+          >
+          <input
+            type="radio"
+            id="yes-self-admin"
+            name="self-admin-rx-yes-or-no"
+            value="yes-self-admin"
+          />
+        </div>
+        <!-- no -->
+        <div>
+          <label for="no-self-admin"
+            >No, administer the medication for the client</label
+          >
+          <input
+            type="radio"
+            id="no-self-admin"
+            name="self-admin-rx-yes-or-no"
+            value="no-self-admin"
+          />
+        </div>
       </fieldset>
+      <!-- who admin's rx END -->
+
+      <!-- reason for rx -->
+      <div class="reason-for-rx">
+        <label for="reason-for-rx"
+          >What is the reason for administering this medication?
+          <abbr title="required">*</abbr>
+        </label>
+        <div>
+          <textarea
+            name="reason-for-rx"
+            id="reason-for-rx"
+            cols="30"
+            rows="10"
+          ></textarea>
+        </div>
+      </div>
+      <!-- reason for rx END -->
     </form>
   </body>
 </html>
