@@ -14,7 +14,7 @@
     <!-- required fields disclaimer-->
     <p>Required fields are followed by <abbr title="required">*</abbr>.</p>
 
-    <form action="">
+    <form action="none">
       <!-- client name field -->
       <div class="client-name">
         <label for="client-name"
@@ -184,6 +184,29 @@
         </div>
       </div>
       <!-- reason for rx END -->
+
+      <!-- side effects -->
+      <div class="side-fx">
+        <label for="side-fx-list-input"
+          >What are the side effects of this medication we should be observing
+          for?</label
+        >
+        <input
+          type="text"
+          id="side-fx-list-input"
+          name="side-fx-list-input"
+          placeholder="Type side effect and press 'ENTER'"
+        />
+        <button type="button" class="side-fx-enter" onclick="addSideFx()">
+          ENTER
+        </button>
+        <div class="side-fx-items">
+          <ul id="side-fx-list"></ul>
+        </div>
+      </div>
+
+      <!-- side effects END -->
     </form>
+    <script type="text/javascript" src="main.js"></script>
   </body>
 </html>
