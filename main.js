@@ -1,4 +1,5 @@
 let numberOfSideFx = 0;
+let formField = document.getElementById("conditional-form-field");
 
 function addSideFx() {
   // target the <ul>
@@ -36,6 +37,5 @@ function generateConditionalFormFields() {
 }
 
 function generateExampleFormField() {
-  var formField = document.getElementById("conditional-form-field");
   formField.innerHTML = `<p>Hey boo ;)</p>`;
 }
