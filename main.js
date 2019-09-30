@@ -25,3 +25,17 @@ function removeSideFx(n) {
   var targetElement = document.getElementById(n);
   targetElement.parentNode.remove();
 }
+
+function generateConditionalFormFields() {
+  var yesPrn = document.getElementById("yes-prn");
+  var noPrn = document.getElementById("no-prn");
+  var yesPsy = document.getElementById("yes-psy");
+  var noPsy = document.getElementById("no-psy");
+
+  yesPrn.checked && yesPsy.checked ? generateExampleFormField() : wutevs();
+}
+
+function generateExampleFormField() {
+  var formField = document.getElementById("conditional-form-field");
+  formField.innerHTML = `<p>Hey boo ;)</p>`;
+}

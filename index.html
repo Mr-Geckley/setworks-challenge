@@ -209,8 +209,8 @@
       <!-- is PRN -->
       <fieldset>
         <legend>
-          Is this medication a<strong
-            ><abbr title="Pro re nata"> PRN</abbr></strong
+          Is this medication a
+          <strong><abbr title="Pro re nata">PRN</abbr></strong
           >?
           <abbr title="required" aria-label="required">*</abbr>
         </legend>
@@ -223,12 +223,20 @@
             id="yes-prn"
             name="prn-yes-or-no"
             value="yes-prn"
+            onclick="generateConditionalFormFields()"
+            ;
           />
         </div>
         <!-- no -->
         <div>
           <label for="no-prn">No</label>
-          <input type="radio" id="no-prn" name="prn-yes-or-no" value="no-prn" />
+          <input
+            type="radio"
+            id="no-prn"
+            name="prn-yes-or-no"
+            value="no-prn"
+            onclick="generateConditionalFormFields()"
+          />
         </div>
       </fieldset>
       <!-- is PRN END -->
@@ -236,27 +244,39 @@
       <!-- is psychotropic -->
       <fieldset>
         <legend>
-          Is this a<strong> psychotropic </strong>medication?
+          Is this a <strong>psychotropic</strong> medication?
           <abbr title="required" aria-label="required">*</abbr>
         </legend>
 
         <!-- yes -->
         <div>
-          <label for="yes-prn">Yes</label>
+          <label for="yes-psy">Yes</label>
           <input
             type="radio"
-            id="yes-prn"
-            name="prn-yes-or-no"
-            value="yes-prn"
+            id="yes-psy"
+            name="psy-yes-or-no"
+            value="yes-psy"
+            onclick="generateConditionalFormFields()"
+            ;
           />
         </div>
         <!-- no -->
         <div>
-          <label for="no-prn">No</label>
-          <input type="radio" id="no-prn" name="prn-yes-or-no" value="no-prn" />
+          <label for="no-psy">No</label>
+          <input
+            type="radio"
+            id="no-psy"
+            name="psy-yes-or-no"
+            value="no-psy"
+            onclick="generateConditionalFormFields()"
+          />
         </div>
       </fieldset>
       <!-- is psychotropic END -->
+
+      <!-- conditional form field -->
+      <div id="conditional-form-field"></div>
+      <!-- conditional form field END -->
     </form>
     <script type="text/javascript" src="main.js"></script>
   </body>
