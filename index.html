@@ -275,9 +275,156 @@
       <!-- is psychotropic END -->
 
       <!-- conditional form field -->
-      <div id="conditional-form-field"></div>
+      <div id="conditional-form-field">
+        <!-- generateYesPrnAndYesPsyForm -->
+        <!-- <div class="prn-criteria" id="prn-criteria">
+          <label for="prn-criteria-list-input">
+            List the exact criteria for administering the medication as a
+            PRN</label
+          >
+          <input
+            type="text"
+            id="prn-criteria-list-input"
+            name="prn-criteria-list-input"
+            placeholder="Type criteria and press 'ENTER'"
+          />
+          <button
+            type="button"
+            class="prn-criteria-enter"
+            onclick="addListItem(this)"
+          >
+            ENTER
+          </button>
+          <div class="prn-criteria-items">
+            <ul id="prn-criteria-list"></ul>
+          </div>
+        </div>
+        <div>
+          <label for="external-form-file"
+            >Upload a completed copy of the ​PRN Psychotropic Behavioral and
+            Procedural Criteria
+          </label>
+          <input type="file" id="external-form-file" name="external-form-file" multiple />
+        </div> -->
+        <!-- generateYesPrnAndYesPsyForm END -->
+
+        <!-- generateYesPrnAndNoPsyForm -->
+        <!-- <div class="prn-criteria" id="prn-criteria">
+                <label for="prn-criteria-list-input">
+                  List the exact criteria for administering the medication as a
+                  PRN</label
+                >
+                <input
+                  type="text"
+                  id="prn-criteria-list-input"
+                  name="prn-criteria-list-input"
+                  placeholder="Type criteria and press 'ENTER'"
+                />
+                <button
+                  type="button"
+                  class="prn-criteria-enter"
+                  onclick="addListItem(this)"
+                >
+                  ENTER
+                </button>
+                <div class="prn-criteria-items">
+                  <ul id="prn-criteria-list"></ul>
+                </div>
+              </div>
+              <div> -->
+        <!-- generateYesPrnAndNoPsyForm END -->
+
+        <!-- generateNoPrnAndYesPsyForm -->
+        <fieldset>
+          <legend>PSYCHOTROPIC INFORMATION</legend>
+          <div class="psy-info-provider">
+            <label for="psy-info-provider"
+              >Name of person providing information on pyschotropic medication:
+              <abbr title="required" aria-label="required">*</abbr></label
+            >
+            <input
+              id="psy-info-provider"
+              type="text"
+              name="psy-info-provider"
+            />
+          </div>
+          <label for="psy-info-date">Today's date:</label>
+
+          <input type="date" name="psy-info-date" />
+
+          <div class="addtl-psy-info" id="addtl-psy-info">
+            <label for="addtl-psy-info-list-input">
+              List the exact criteria for administering the medication as a
+              PRN</label
+            >
+            <input
+              type="text"
+              id="addtl-psy-info-list-input"
+              name="addtl-psy-info-list-input"
+              placeholder="Type criteria and press 'ENTER'"
+            />
+            <button
+              type="button"
+              class="addtl-psy-info-enter"
+              onclick="addListItem(this)"
+            >
+              ENTER
+            </button>
+            <div class="addtl-psy-info-items">
+              <ul id="addtl-psy-info-list"></ul>
+            </div>
+          </div>
+        </fieldset>
+        <fieldset>
+          <legend>
+            Do you want us to collect data on these behaviors?
+            <abbr title="required" aria-label="required">*</abbr>
+          </legend>
+
+          <!-- yes -->
+          <div>
+            <label for="yes-collect-data">Yes</label>
+            <input
+              type="radio"
+              id="yes-collect-data"
+              name="collect-data-yes-or-no"
+              value="yes-collect-data"
+              onclick="generateDataCollectionMethodsInput()"
+            />
+          </div>
+          <!-- no -->
+          <div>
+            <label for="dont-collect-data">No</label>
+            <input
+              type="radio"
+              id="dont-collect-data"
+              name="collect-data-yes-or-no"
+              value="dont-collect-data"
+              onclick="generateDataCollectionMethodsInput()"
+            />
+          </div>
+          <div
+            class="data-collection-methods-container"
+            id="data-collection-methods-container"
+          ></div>
+        </fieldset>
+        <label for="addtl-psy-info-file"
+          >Please send us any other relevant information regarding this
+          non-<strong><abbr title="Pro re nata">PRN</abbr></strong> psychotropic
+          medication:
+        </label>
+        <input
+          type="file"
+          id="addtl-psy-info-file"
+          name="addtl-psy-info-file"
+          multiple
+        />
+        <!-- generateNoPrnAndYesPsyForm END -->
+      </div>
       <!-- conditional form field END -->
     </form>
+
+    <!-- NOTE TO SELF: finish "when to take meds" function -->
     <script type="text/javascript" src="main.js"></script>
   </body>
 </html>

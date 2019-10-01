@@ -18,8 +18,20 @@ function addSideFx() {
   numberOfSideFx++;
 }
 
-function wutevs() {
-  console.log("wutevs");
+function wutevs(x) {
+  console.log(`${x.parentNode.id}-list-input`);
+}
+
+function addListItem(x) {
+  var targetList = x.nextElementSibling.firstElementChild;
+  var newListItem = document.createElement("LI");
+  var newListItemContent = document.getElementById(
+    `${x.parentNode.id}-list-input`
+  ).value;
+
+  newListItem.innerHTML = ` ${newListItemContent} <button id="removeButton${numberOfSideFx}" type="button" onClick="removeSideFx(this.id)"> REMOVE </button>`;
+
+  targetList.appendChild(newListItem);
 }
 
 function removeSideFx(n) {
@@ -36,6 +48,52 @@ function generateConditionalFormFields() {
   yesPrn.checked && yesPsy.checked ? generateExampleFormField() : wutevs();
 }
 
-function generateExampleFormField() {
-  formField.innerHTML = `<p>Hey boo ;)</p>`;
+// function generateExampleFormField() {
+//   formField.innerHTML = `<p>Hey boo ;)</p>`;
+// }
+
+// generateYesPrnAndYesPsyForm(){
+//     // add file picker and criteria list creator here
+//     formField.innerHTML = ``
+// }
+
+// generateYesPrnAndNoPsyForm(){
+//     // add add list criteria creator here
+// }
+
+// generateNoPrnAndYesPsyForm(){
+//     // add "form on back" here
+//     // symptom list
+//     // radio: yes/no about how to collect data
+//     // text area
+//     // file picker for additional info
+// }
+
+// generateNoPrnAndNoPsyForm(){
+//     // don't add anything or remove formField
+// }
+
+function generateDataCollectionMethodsInput() {
+  var targetElement = document.getElementById(
+    "data-collection-methods-container"
+  );
+  var yesCollect = document.getElementById("yes-collect-data");
+  var dontCollect = document.getElementById("dont-collect-data");
+
+  if (yesCollect.checked) {
+    targetElement.innerHTML = `<label for="data-collection-methods"
+        >Describe methods for data collection:
+        <abbr title="required">*</abbr>
+      </label>
+      <div>
+        <textarea
+          name="data-collection-methods"
+          id="data-collection-methods"
+          cols="30"
+          rows="10"
+        ></textarea>
+      </div>`;
+  } else {
+    targetElement.innerHTML = ``;
+  }
 }
