@@ -283,6 +283,6 @@ function submissionAlert() {
   );
 }
 
-// function wutevs(x) {
-//   console.log(`${x.parentNode.id}-list-input`);
-// }
+function wutevs(x) {
+  console.log(`wutevs`);
+}
