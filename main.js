@@ -1,46 +1,10 @@
 let numberOfSideFx = 0;
 let formField = document.getElementById("conditional-form-field");
 
-function addSideFx() {
-  // target the <ul>
-  var sideFxList = document.getElementById("side-fx-list");
-  // create an <li>
-  var sideFxListItem = document.createElement("LI");
-  // create a var that holds a string equal to what ever is in the text input
-  var sideFxListItemContent = document.getElementById("side-fx-list-input")
-    .value;
-  // set the content of said <li> to equal what is in the text input field
-  sideFxListItem.innerHTML = ` ${sideFxListItemContent} <button id="removeButton${numberOfSideFx}" type="button" onClick="removeSideFx(this.id)"> REMOVE </button>`;
-
-  // add the populated <li> to the <ul>
-  sideFxList.appendChild(sideFxListItem);
-
-  numberOfSideFx++;
-}
-
-// function wutevs(x) {
-//   console.log(`${x.parentNode.id}-list-input`);
-// }
-
-function generateTimePickerInput() {
-  var newDiv = document.createElement("DIV");
-  newDiv.innerHTML = `<input
-    type="text"
-    name="time-of-dose"
-    pattern="^(0[0-9]|1[0-9]|2[0-3]|[0-9]):[0-5][0-9]$"
-    value="00:00"
-  />`;
-  return newDiv;
-}
-
-function populateRxTimesInputDiv(n) {
-  var rxTimesInputDiv = document.getElementById("rx-times-input");
-  rxTimesInputDiv.innerHTML = "";
-  for (i = 0; i < n; i++) {
-    rxTimesInputDiv.appendChild(generateTimePickerInput());
-  }
-}
-
+/**
+ * create and <li> and add it to target <ul>
+ * @param{clicked button}
+ */
 function addListItem(x) {
   var targetList = x.nextElementSibling.firstElementChild;
   var newListItem = document.createElement("LI");
@@ -48,16 +12,53 @@ function addListItem(x) {
     `${x.parentNode.id}-list-input`
   ).value;
 
-  newListItem.innerHTML = ` ${newListItemContent} <button id="removeButton${numberOfSideFx}" type="button" onClick="removeSideFx(this.id)"> REMOVE </button>`;
+  newListItem.innerHTML = ` ${newListItemContent} <button id="removeButton${numberOfSideFx}" type="button" onClick="removeListItem(this.id)"> REMOVE </button>`;
 
   targetList.appendChild(newListItem);
+
+  numberOfSideFx++;
 }
 
-function removeSideFx(n) {
+/**
+ * create and return new time input
+ * called by 'populateRxTimesSpan()'
+ */
+function generateTimePickerInput() {
+  var newDiv = document.createElement("DIV");
+  newDiv.innerHTML = `<abbr title="required" aria-label="required">*</abbr><input
+    type="text"
+    name="time-of-dose"
+    pattern="^(0[0-9]|1[0-9]|2[0-3]|[0-9]):[0-5][0-9]$"
+    value="00:00"
+    required
+  />`;
+  return newDiv;
+}
+
+/**
+ * generates 'n' number of time inputs
+ * @param {number} n
+ */
+function populateRxTimesInputSpan(n) {
+  var rxTimesInputDiv = document.getElementById("rx-times-input");
+  rxTimesInputDiv.innerHTML = "";
+  for (i = 0; i < n; i++) {
+    rxTimesInputDiv.appendChild(generateTimePickerInput());
+  }
+}
+
+/**
+ * remove clicked <li> from parent <ul>
+ * @param {object} n
+ */
+function removeListItem(n) {
   var targetElement = document.getElementById(n);
   targetElement.parentNode.remove();
 }
 
+/**
+ * dynamically creates form fields based on characteristics of medication
+ */
 function generateConditionalFormFields() {
   var yesPrn = document.getElementById("yes-prn");
   var noPrn = document.getElementById("no-prn");
@@ -81,6 +82,10 @@ function generateConditionalFormFields() {
   }
 }
 
+/**
+ * populates conditional form field
+ * called by 'generateConditionalFormFields()'
+ */
 function generateYesPrnAndYesPsyForm() {
   formField.innerHTML = `<div class="prn-criteria" id="prn-criteria">
     <label for="prn-criteria-list-input">
@@ -113,6 +118,10 @@ function generateYesPrnAndYesPsyForm() {
 </div>`;
 }
 
+/**
+ * populates conditional form field
+ * called by 'generateConditionalFormFields()'
+ */
 function generateYesPrnAndNoPsyForm() {
   formField.innerHTML = `<div class="prn-criteria" id="prn-criteria">
     <label for="prn-criteria-list-input">
@@ -138,6 +147,10 @@ function generateYesPrnAndNoPsyForm() {
 </div>`;
 }
 
+/**
+ * populates conditional form field
+ * called by 'generateConditionalFormFields()'
+ */
 function generateNoPrnAndYesPsyForm() {
   formField.innerHTML = `   <fieldset>
     <legend>PSYCHOTROPIC INFORMATION</legend>
@@ -225,10 +238,17 @@ function generateNoPrnAndYesPsyForm() {
   />`;
 }
 
+/**
+ * depopulates conditional form field
+ * called by 'generateConditionalFormFields()'
+ */
 function generateNoPrnAndNoPsyForm() {
   formField.innerHTML = "";
 }
 
+/**
+ * creates text area input as per informational requirements
+ */
 function generateDataCollectionMethodsInput() {
   var targetElement = document.getElementById(
     "data-collection-methods-container"
@@ -253,9 +273,16 @@ function generateDataCollectionMethodsInput() {
   }
 }
 
+/**
+ * generates alert message on form "submission" featuring name if first form field as per requirements
+ */
 function submissionAlert() {
   var alertMsgSubject = document.getElementById("client-name").value;
   window.alert(
     `Thank you, we received the information regarding the medication for ${alertMsgSubject}, you can expect a confirmation email in a few minutes.`
   );
 }
+
+// function wutevs(x) {
+//   console.log(`${x.parentNode.id}-list-input`);
+// }

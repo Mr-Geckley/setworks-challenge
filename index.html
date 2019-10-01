@@ -97,7 +97,7 @@
             step="1"
             value="1"
             min="1"
-            onchange="populateRxTimesInputDiv(this.value)"
+            onchange="populateRxTimesInputSpan(this.value)"
           />
         </div>
 
@@ -106,16 +106,16 @@
           <label for="time-of-dose"
             >At what time(s) should the medication be given?
             <abbr title="required" aria-label="required">*</abbr></label
-          >
-          <p><strong>Note: </strong>24 hour HH:MM format</p>
-          <div id="rx-times-input">
-            <!-- <input
+          ><span id="rx-times-input">
+            <abbr title="required" aria-label="required">*</abbr
+            ><input
               type="text"
               name="time-of-dose"
               pattern="^(0[0-9]|1[0-9]|2[0-3]|[0-9]):[0-5][0-9]$"
               value="00:00"
-            /> -->
-          </div>
+            />
+          </span>
+          <p><strong>Note: </strong>24 hour HH:MM format</p>
         </div>
       </div>
       <!-- dosage unit and quantity field END -->
@@ -189,7 +189,7 @@
       <!-- reason for rx END -->
 
       <!-- side effects -->
-      <div class="side-fx">
+      <div class="side-fx" id="side-fx">
         <label for="side-fx-list-input"
           >What are the side effects of this medication we should be observing
           for?</label
@@ -200,7 +200,7 @@
           name="side-fx-list-input"
           placeholder="Type side effect and press 'ENTER'"
         />
-        <button type="button" class="side-fx-enter" onclick="addSideFx()">
+        <button type="button" class="side-fx-enter" onclick="addListItem(this)">
           ENTER
         </button>
         <div class="side-fx-items">
