@@ -252,3 +252,10 @@ function generateDataCollectionMethodsInput() {
     targetElement.innerHTML = ``;
   }
 }
+
+function submissionAlert() {
+  var alertMsgSubject = document.getElementById("client-name").value;
+  window.alert(
+    `Thank you, we received the information regarding the medication for ${alertMsgSubject}, you can expect a confirmation email in a few minutes.`
+  );
+}
