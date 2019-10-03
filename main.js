@@ -88,7 +88,7 @@ function generateConditionalFormFields() {
  */
 function generateYesPrnAndYesPsyForm() {
   formField.innerHTML = `<div class="prn-criteria" id="prn-criteria">
-    <label for="prn-criteria-list-input">
+    <label for="prn-criteria-list-input label-font">
       List the exact criteria for administering the medication as a
       PRN</label
     >
@@ -110,7 +110,7 @@ function generateYesPrnAndYesPsyForm() {
     </div>
   </div>
   <div>
-    <label for="external-form-file"
+    <label for="external-form-file" class="label-font"
       >Upload a completed copy of the ​PRN Psychotropic Behavioral and
       Procedural Criteria
     </label>
@@ -124,7 +124,7 @@ function generateYesPrnAndYesPsyForm() {
  */
 function generateYesPrnAndNoPsyForm() {
   formField.innerHTML = `<div class="prn-criteria" id="prn-criteria">
-    <label for="prn-criteria-list-input">
+    <label for="prn-criteria-list-input" class="label-input">
       List the exact criteria for administering the medication as a
       PRN</label
     >
@@ -155,7 +155,7 @@ function generateNoPrnAndYesPsyForm() {
   formField.innerHTML = `   <fieldset>
     <legend>PSYCHOTROPIC INFORMATION</legend>
     <div class="psy-info-provider">
-      <label for="psy-info-provider"
+      <label for="psy-info-provider" class="label-font"
         >Name of person providing information on pyschotropic medication:
         <abbr title="required" aria-label="required">*</abbr></label
       >
@@ -165,12 +165,12 @@ function generateNoPrnAndYesPsyForm() {
         name="psy-info-provider"
       />
     </div>
-    <label for="psy-info-date">Today's date:</label>
+    <label for="psy-info-date" class="label-font">Today's date:</label>
 
     <input type="date" name="psy-info-date" />
 
     <div class="addtl-psy-info" id="addtl-psy-info">
-      <label for="addtl-psy-info-list-input">
+      <label for="addtl-psy-info-list-input" class="label-font">
         List the exact criteria for administering the medication as a
         PRN</label
       >
@@ -193,7 +193,7 @@ function generateNoPrnAndYesPsyForm() {
     </div>
   </fieldset>
   <fieldset>
-    <legend>
+    <legend class="label-font">
       Do you want us to collect data on these behaviors?
       <abbr title="required" aria-label="required">*</abbr>
     </legend>
@@ -225,7 +225,7 @@ function generateNoPrnAndYesPsyForm() {
       id="data-collection-methods-container"
     ></div>
   </fieldset>
-  <label for="addtl-psy-info-file"
+  <label for="addtl-psy-info-file" class="label-font"
     >Please send us any other relevant information regarding this
     non-<strong><abbr title="Pro re nata">PRN</abbr></strong> psychotropic
     medication:
@@ -256,7 +256,7 @@ function generateDataCollectionMethodsInput() {
   var yesCollect = document.getElementById("yes-collect-data");
 
   if (yesCollect.checked) {
-    targetElement.innerHTML = `<label for="data-collection-methods"
+    targetElement.innerHTML = `<label for="data-collection-methods" class="label-font"
         >Describe methods for data collection:
         <abbr title="required">*</abbr>
       </label>
@@ -264,8 +264,8 @@ function generateDataCollectionMethodsInput() {
         <textarea
           name="data-collection-methods"
           id="data-collection-methods"
-          cols="30"
-          rows="10"
+          cols="40"
+          rows="5"
         ></textarea>
       </div>`;
   } else {

@@ -42,25 +42,30 @@
 
     <main class="form-bg-padding dark-bg">
       <!-- required fields disclaimer-->
-      <p class="reqd-note">
+      <p class="reqd-note body-font">
         Required fields are followed by <abbr title="required">*</abbr>.
       </p>
 
       <form action="none">
         <!-- client name field -->
         <div class="client-name">
-          <label class="border-rad-tl-tr pink-bg" for="client-name"
+          <label class="border-rad-tl-tr pink-bg label-font" for="client-name"
             >Client name:
             <abbr title="required" aria-label="required">*</abbr></label
           >
-          <input id="client-name" type="text" name="client-name" />
+          <input
+            class="body-font"
+            id="client-name"
+            type="text"
+            name="client-name"
+          />
         </div>
         <!-- client name field END -->
 
         <section class="dosage-info">
           <!-- name of medication field -->
           <div class="rx-name">
-            <label class="pink-bg" for="rx-name"
+            <label class="pink-bg label-font" for="rx-name"
               >Name of medication:
               <abbr title="required" aria-label="required">*</abbr></label
             >
@@ -72,7 +77,7 @@
           <div class="dose-unit-and-quant">
             <fieldset>
               <legend>
-                <label for="quant-of-dose">
+                <label for="quant-of-dose " class="label-font">
                   What is the dosage for this medication?<abbr
                     title="required"
                     aria-label="required"
@@ -115,7 +120,7 @@
           <div class="rx-times">
             <!-- number of doses -->
             <div class="num-of-dose">
-              <label for="number-of-dose"
+              <label for="number-of-dose " class="label-font"
                 >How many times a day is this medication taken?
                 <abbr title="required" aria-label="required">*</abbr></label
               >
@@ -132,7 +137,7 @@
 
             <!-- times of doses -->
             <div class="time-of-dose">
-              <label for="time-of-dose"
+              <label for="time-of-dose " class="label-font"
                 >At what time(s) should the medication be given?
                 <abbr title="required" aria-label="required">*</abbr></label
               ><span id="rx-times-input">
@@ -152,7 +157,7 @@
         <section class="addtl-instruction">
           <!-- special instructions for rx -->
           <div class="spec-instruct">
-            <label for="spec-instruct"
+            <label for="spec-instruct " class="label-font"
               >Special instructions for taking this medication:
             </label>
             <div>
@@ -168,7 +173,7 @@
 
           <!-- how long should rx be taken -->
           <div class="how-long">
-            <label for="how-long"
+            <label for="how-long " class="label-font"
               >How long should this medication to be given?
               <abbr title="required" aria-label="required"> *</abbr>
             </label>
@@ -185,7 +190,7 @@
 
           <!-- who admin's rx -->
           <fieldset>
-            <legend>
+            <legend class="label-font">
               Is this medication self-administered or not?
               <abbr title="required" aria-label="required">*</abbr>
             </legend>
@@ -221,7 +226,7 @@
         <section class="reason-slash-side-effects">
           <!-- reason for rx -->
           <div class="reason-for-rx">
-            <label for="reason-for-rx"
+            <label for="reason-for-rx " class="label-font"
               >What is the reason for administering this medication?
               <abbr title="required">*</abbr>
             </label>
@@ -238,7 +243,7 @@
 
           <!-- side effects -->
           <div class="side-fx" id="side-fx">
-            <label for="side-fx-list-input"
+            <label for="side-fx-list-input" class="label-font"
               >What are the side effects of this medication we should be
               observing for?</label
             >
@@ -264,7 +269,7 @@
         <section class="prn-slash-psychotropic-info">
           <!-- is PRN -->
           <fieldset>
-            <legend>
+            <legend class="label-font">
               Is this medication a
               <strong><abbr title="Pro re nata">PRN</abbr></strong
               >?
@@ -299,7 +304,7 @@
 
           <!-- is psychotropic -->
           <fieldset>
-            <legend>
+            <legend class="label-font">
               Is this a <strong>psychotropic</strong> medication?
               <abbr title="required" aria-label="required">*</abbr>
             </legend>
