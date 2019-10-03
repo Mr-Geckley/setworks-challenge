@@ -25,13 +25,13 @@ function addListItem(x) {
  */
 function generateTimePickerInput() {
   var newDiv = document.createElement("DIV");
-  newDiv.innerHTML = `<abbr title="required" aria-label="required">*</abbr><input
+  newDiv.innerHTML = `<input
     type="text"
     name="time-of-dose"
     pattern="^(0[0-9]|1[0-9]|2[0-3]|[0-9]):[0-5][0-9]$"
     value="00:00"
     required
-  />`;
+  /><abbr title="required" aria-label="required">*</abbr>`;
   return newDiv;
 }
 

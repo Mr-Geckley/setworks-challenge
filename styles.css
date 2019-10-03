@@ -1,0 +1,81 @@
+:root {
+  --main-grey: #363946;
+  --main-red: #521b22;
+  --main-white: #ecf2f0;
+  --main-blue: #40476d;
+  --main-pink: #ffeef2;
+  /* --main-header-font:  */
+  --main-header-font: "Be Vietnam", sans-serif;
+  /* --main-body-font: "Be Vietnam", sans-serif; */
+  --main-body-font: "Roboto Slab", serif;
+  --main-display-font: "Be Vietnam", sans-serif;
+  --main-display-font: "Marcellus", serif;
+}
+* {
+  margin: 0;
+  padding: 0;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+.disp-font {
+  font-family: var(--main-display-font);
+  font-weight: 900;
+  text-decoration: underline;
+  line-height: 20px;
+}
+
+.head-font {
+  font-family: var(--main-header-font);
+}
+
+.label-font {
+  font-family: var(--main-body-font);
+  font-weight: 600;
+}
+
+.body-font {
+  font-family: var(--main-body-font);
+}
+
+.inline-block {
+  display: inline-block;
+}
+
+/* .main-margin {
+  margin-left: 30vw;
+  margin-right: 30vw;
+} */
+.reqd-note {
+  margin-bottom: 5vw;
+  text-align: center;
+}
+.form-bg-padding {
+  padding-left: 10vw;
+  padding-right: 10vw;
+  padding-top: 5vw;
+}
+
+.dark-bg {
+  background-color: var(--main-red);
+}
+
+.light-bg {
+  background-color: var(--main-white);
+}
+
+.pink-bg {
+  background-color: var(--main-pink);
+}
+
+input {
+  border-top-right-radius: 25px;
+}
+
+/* label {
+  background-color: var(--main-pink);
+} */

@@ -5,429 +5,338 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Document</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Be+Vietnam|Marcellus|Roboto+Slab&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <!-- header -->
-    <h1>SETWORKS AGENCY, INC.</h1>
-    <h2>INFORMATION ABOUT MEDICATIONS</h2>
-
-    <!-- required fields disclaimer-->
-    <p>Required fields are followed by <abbr title="required">*</abbr>.</p>
-
-    <form action="none">
-      <!-- client name field -->
-      <div class="client-name">
-        <label for="client-name"
-          >Client name:
-          <abbr title="required" aria-label="required">*</abbr></label
+    <header>
+      <div class="inline-block">
+        <svg
+          width="135"
+          height="135"
+          viewBox="0 0 135 135"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
         >
-        <input id="client-name" type="text" name="client-name" />
+          <circle cx="67.5" cy="67.5" r="67.5" fill="#521b22" />
+          <path
+            d="M114.203 24.0811L5.47296 51.0811L39.7703 66.0405L30.2838 118.216L114.203 24.0811Z"
+            fill="#EDF4ED"
+          />
+          <path
+            d="M85.3784 62.7568L64.9459 86.1081L111.284 113.473L85.3784 62.7568Z"
+            fill="#EDF4ED"
+          />
+          <circle cx="56.9189" cy="20.4325" r="14.5946" fill="#EDF4ED" />
+        </svg>
       </div>
-      <!-- client name field END -->
-
-      <!-- name of medication field -->
-      <div class="rx-name">
-        <label for="rx-name"
-          >Name of medication:
-          <abbr title="required" aria-label="required">*</abbr></label
-        >
-        <input id="rx-name" type="text" name="rx-name" />
+      <div class="inline-block">
+        <h1 class="disp-font">SETWORKS AGENCY, INC.</h1>
+        <h2 class="head-font">Information About Medications</h2>
       </div>
-      <!-- name of medication field END-->
+    </header>
 
-      <!-- dosage unit and quantity field -->
-      <div class="dose-unit-and-quant">
-        <!-- dose-unit -->
-        <fieldset>
-          <legend>
-            Is this medication administered in milligrams or milliliters?
-            <abbr title="required" aria-label="required">*</abbr>
-          </legend>
+    <main class="form-bg-padding dark-bg">
+      <!-- required fields disclaimer-->
+      <p class="reqd-note">
+        Required fields are followed by <abbr title="required">*</abbr>.
+      </p>
 
-          <!-- mg radio -->
-          <div>
-            <label for="milligrams"><abbr title="milligrams">mg</abbr></label>
-            <input
-              type="radio"
-              id="milligrams"
-              name="dose-unit-of-meas"
-              value="milligrams"
-            />
-          </div>
-          <!-- mL radio -->
-          <div>
-            <label for="milliliters"><abbr title="milliliters">mL</abbr></label>
-            <input
-              type="radio"
-              id="milliliters"
-              name="dose-unit-of-meas"
-              value="milliliters"
-            />
-          </div>
-        </fieldset>
-
-        <!-- quant-of-dose -->
-        <div>
-          <label for="quant-of-dose"
-            >What is the dosage of this medication?
+      <form action="none">
+        <!-- client name field -->
+        <div class="client-name">
+          <label class="border-rad-tl-tr pink-bg" for="client-name"
+            >Client name:
             <abbr title="required" aria-label="required">*</abbr></label
           >
-          <input
-            type="number"
-            step="0.25"
-            id="quant-of-dose"
-            name="quant-of-dose"
-          />
+          <input id="client-name" type="text" name="client-name" />
         </div>
-      </div>
-      <!-- dosage unit and quantity field END -->
+        <!-- client name field END -->
 
-      <!-- number and time of dose field -->
-      <div class="rx-times">
-        <!-- number of doses -->
-        <div class="num-of-dose">
-          <label for="number-of-dose"
-            >How many times a day is this medication taken?
-            <abbr title="required" aria-label="required">*</abbr></label
-          >
-          <input
-            id="number-of-dose"
-            type="number"
-            name="number-of-dose"
-            step="1"
-            value="1"
-            min="1"
-            onchange="populateRxTimesInputSpan(this.value)"
-          />
-        </div>
-
-        <!-- times of doses, come back and add update number of date pickers per number of doses input above -->
-        <div class="time-of-dose">
-          <label for="time-of-dose"
-            >At what time(s) should the medication be given?
-            <abbr title="required" aria-label="required">*</abbr></label
-          ><span id="rx-times-input">
-            <abbr title="required" aria-label="required">*</abbr
-            ><input
-              type="text"
-              name="time-of-dose"
-              pattern="^(0[0-9]|1[0-9]|2[0-3]|[0-9]):[0-5][0-9]$"
-              value="00:00"
-            />
-          </span>
-          <p><strong>Note: </strong>24 hour HH:MM format</p>
-        </div>
-      </div>
-      <!-- dosage unit and quantity field END -->
-
-      <!-- special instructions for rx -->
-      <div class="spec-instruct">
-        <label for="spec-instruct"
-          >Special instructions for taking this medication:
-        </label>
-        <div>
-          <textarea
-            name="spec-instruct"
-            id="spec-instruct"
-            cols="30"
-            rows="10"
-          ></textarea>
-        </div>
-      </div>
-      <!-- special instructions for rx END-->
-
-      <!-- who admin's rx -->
-      <fieldset>
-        <legend>
-          Is this medication self-administered or not?
-          <abbr title="required" aria-label="required">*</abbr>
-        </legend>
-
-        <!-- yes -->
-        <div>
-          <label for="yes-self-admin"
-            >Yes, supervise the client's self-administration of the
-            medication</label
-          >
-          <input
-            type="radio"
-            id="yes-self-admin"
-            name="self-admin-rx-yes-or-no"
-            value="yes-self-admin"
-          />
-        </div>
-        <!-- no -->
-        <div>
-          <label for="no-self-admin"
-            >No, administer the medication for the client</label
-          >
-          <input
-            type="radio"
-            id="no-self-admin"
-            name="self-admin-rx-yes-or-no"
-            value="no-self-admin"
-          />
-        </div>
-      </fieldset>
-      <!-- who admin's rx END -->
-
-      <!-- reason for rx -->
-      <div class="reason-for-rx">
-        <label for="reason-for-rx"
-          >What is the reason for administering this medication?
-          <abbr title="required">*</abbr>
-        </label>
-        <div>
-          <textarea
-            name="reason-for-rx"
-            id="reason-for-rx"
-            cols="30"
-            rows="10"
-          ></textarea>
-        </div>
-      </div>
-      <!-- reason for rx END -->
-
-      <!-- side effects -->
-      <div class="side-fx" id="side-fx">
-        <label for="side-fx-list-input"
-          >What are the side effects of this medication we should be observing
-          for?</label
-        >
-        <input
-          type="text"
-          id="side-fx-list-input"
-          name="side-fx-list-input"
-          placeholder="Type side effect and press 'ENTER'"
-        />
-        <button type="button" class="side-fx-enter" onclick="addListItem(this)">
-          ENTER
-        </button>
-        <div class="side-fx-items">
-          <ul id="side-fx-list"></ul>
-        </div>
-      </div>
-      <!-- side effects END -->
-
-      <!-- is PRN -->
-      <fieldset>
-        <legend>
-          Is this medication a
-          <strong><abbr title="Pro re nata">PRN</abbr></strong
-          >?
-          <abbr title="required" aria-label="required">*</abbr>
-        </legend>
-
-        <!-- yes -->
-        <div>
-          <label for="yes-prn">Yes</label>
-          <input
-            type="radio"
-            id="yes-prn"
-            name="prn-yes-or-no"
-            value="yes-prn"
-            onclick="generateConditionalFormFields()"
-            ;
-          />
-        </div>
-        <!-- no -->
-        <div>
-          <label for="no-prn">No</label>
-          <input
-            type="radio"
-            id="no-prn"
-            name="prn-yes-or-no"
-            value="no-prn"
-            onclick="generateConditionalFormFields()"
-          />
-        </div>
-      </fieldset>
-      <!-- is PRN END -->
-
-      <!-- is psychotropic -->
-      <fieldset>
-        <legend>
-          Is this a <strong>psychotropic</strong> medication?
-          <abbr title="required" aria-label="required">*</abbr>
-        </legend>
-
-        <!-- yes -->
-        <div>
-          <label for="yes-psy">Yes</label>
-          <input
-            type="radio"
-            id="yes-psy"
-            name="psy-yes-or-no"
-            value="yes-psy"
-            onclick="generateConditionalFormFields()"
-            ;
-          />
-        </div>
-        <!-- no -->
-        <div>
-          <label for="no-psy">No</label>
-          <input
-            type="radio"
-            id="no-psy"
-            name="psy-yes-or-no"
-            value="no-psy"
-            onclick="generateConditionalFormFields()"
-          />
-        </div>
-      </fieldset>
-      <!-- is psychotropic END -->
-
-      <!-- conditional form field -->
-      <div id="conditional-form-field">
-        <!-- generateYesPrnAndYesPsyForm -->
-        <!-- <div class="prn-criteria" id="prn-criteria">
-          <label for="prn-criteria-list-input">
-            List the exact criteria for administering the medication as a
-            PRN</label
-          >
-          <input
-            type="text"
-            id="prn-criteria-list-input"
-            name="prn-criteria-list-input"
-            placeholder="Type criteria and press 'ENTER'"
-          />
-          <button
-            type="button"
-            class="prn-criteria-enter"
-            onclick="addListItem(this)"
-          >
-            ENTER
-          </button>
-          <div class="prn-criteria-items">
-            <ul id="prn-criteria-list"></ul>
+        <section class="dosage-info">
+          <!-- name of medication field -->
+          <div class="rx-name">
+            <label class="pink-bg" for="rx-name"
+              >Name of medication:
+              <abbr title="required" aria-label="required">*</abbr></label
+            >
+            <input id="rx-name" type="text" name="rx-name" />
           </div>
-        </div>
-        <div>
-          <label for="external-form-file"
-            >Upload a completed copy of the ​PRN Psychotropic Behavioral and
-            Procedural Criteria
-          </label>
-          <input type="file" id="external-form-file" name="external-form-file" multiple />
-        </div> -->
-        <!-- generateYesPrnAndYesPsyForm END -->
+          <!-- name of medication field END-->
 
-        <!-- generateYesPrnAndNoPsyForm -->
-        <!-- <div class="prn-criteria" id="prn-criteria">
-                <label for="prn-criteria-list-input">
-                  List the exact criteria for administering the medication as a
-                  PRN</label
-                >
-                <input
-                  type="text"
-                  id="prn-criteria-list-input"
-                  name="prn-criteria-list-input"
-                  placeholder="Type criteria and press 'ENTER'"
-                />
-                <button
-                  type="button"
-                  class="prn-criteria-enter"
-                  onclick="addListItem(this)"
-                >
-                  ENTER
-                </button>
-                <div class="prn-criteria-items">
-                  <ul id="prn-criteria-list"></ul>
-                </div>
-        </div> -->
-        <!-- generateYesPrnAndNoPsyForm END -->
+          <!-- dosage field -->
+          <div class="dose-unit-and-quant">
+            <fieldset>
+              <legend>
+                <label for="quant-of-dose">
+                  What is the dosage for this medication?<abbr
+                    title="required"
+                    aria-label="required"
+                    >*</abbr
+                  >
+                </label>
+              </legend>
 
-        <!-- generateNoPrnAndYesPsyForm -->
-        <!-- <div class="generate-no-prn-and-yes-pys-form-container">
-          <fieldset>
-            <legend>PSYCHOTROPIC INFORMATION</legend>
-            <div class="psy-info-provider">
-              <label for="psy-info-provider"
-                >Name of person providing information on pyschotropic
-                medication:
+              <input
+                type="number"
+                step="0.25"
+                id="quant-of-dose"
+                name="quant-of-dose"
+              />
+              <!-- </div> -->
+
+              <!-- mg radio -->
+              <label for="milligrams"><abbr title="milligrams">mg</abbr></label>
+              <input
+                type="radio"
+                id="milligrams"
+                name="dose-unit-of-meas"
+                value="milligrams"
+              />
+              <!-- mL radio -->
+              <label for="milliliters"
+                ><abbr title="milliliters">mL</abbr></label
+              >
+              <input
+                type="radio"
+                id="milliliters"
+                name="dose-unit-of-meas"
+                value="milliliters"
+              />
+            </fieldset>
+          </div>
+          <!-- dosage field END -->
+
+          <!-- number and time of dose field -->
+          <div class="rx-times">
+            <!-- number of doses -->
+            <div class="num-of-dose">
+              <label for="number-of-dose"
+                >How many times a day is this medication taken?
                 <abbr title="required" aria-label="required">*</abbr></label
               >
               <input
-                id="psy-info-provider"
-                type="text"
-                name="psy-info-provider"
+                id="number-of-dose"
+                type="number"
+                name="number-of-dose"
+                step="1"
+                value="1"
+                min="1"
+                onchange="populateRxTimesInputSpan(this.value)"
               />
             </div>
-            <label for="psy-info-date">Today's date:</label>
 
-            <input type="date" name="psy-info-date" />
-
-            <div class="addtl-psy-info" id="addtl-psy-info">
-              <label for="addtl-psy-info-list-input">
-                List the exact criteria for administering the medication as a
-                PRN</label
-              >
-              <input
-                type="text"
-                id="addtl-psy-info-list-input"
-                name="addtl-psy-info-list-input"
-                placeholder="Type criteria and press 'ENTER'"
-              />
-              <button
-                type="button"
-                class="addtl-psy-info-enter"
-                onclick="addListItem(this)"
-              >
-                ENTER
-              </button>
-              <div class="addtl-psy-info-items">
-                <ul id="addtl-psy-info-list"></ul>
-              </div>
+            <!-- times of doses -->
+            <div class="time-of-dose">
+              <label for="time-of-dose"
+                >At what time(s) should the medication be given?
+                <abbr title="required" aria-label="required">*</abbr></label
+              ><span id="rx-times-input">
+                <input
+                  type="text"
+                  name="time-of-dose"
+                  pattern="^(0[0-9]|1[0-9]|2[0-3]|[0-9]):[0-5][0-9]$"
+                  value="00:00"
+                /><abbr title="required" aria-label="required"> *</abbr>
+              </span>
+              <p><strong>Note: </strong>24 hour HH:MM format</p>
             </div>
-          </fieldset>
+          </div>
+          <!-- dosage unit and quantity field END -->
+        </section>
+
+        <section class="addtl-instruction">
+          <!-- special instructions for rx -->
+          <div class="spec-instruct">
+            <label for="spec-instruct"
+              >Special instructions for taking this medication:
+            </label>
+            <div>
+              <textarea
+                name="spec-instruct"
+                id="spec-instruct"
+                cols="40"
+                rows="5"
+              ></textarea>
+            </div>
+          </div>
+          <!-- special instructions for rx END-->
+
+          <!-- how long should rx be taken -->
+          <div class="how-long">
+            <label for="how-long"
+              >How long should this medication to be given?
+              <abbr title="required" aria-label="required"> *</abbr>
+            </label>
+            <div>
+              <textarea
+                name="how-long"
+                id="how-long"
+                cols="40"
+                rows="5"
+              ></textarea>
+            </div>
+          </div>
+          <!-- how long should rx be taken END -->
+
+          <!-- who admin's rx -->
           <fieldset>
             <legend>
-              Do you want us to collect data on these behaviors?
+              Is this medication self-administered or not?
               <abbr title="required" aria-label="required">*</abbr>
             </legend>
 
+            <!-- yes -->
             <div>
-              <label for="yes-collect-data">Yes</label>
+              <label for="yes-self-admin"
+                >Yes, supervise the client's self-administration of the
+                medication</label
+              >
               <input
                 type="radio"
-                id="yes-collect-data"
-                name="collect-data-yes-or-no"
-                value="yes-collect-data"
-                onclick="generateDataCollectionMethodsInput()"
+                id="yes-self-admin"
+                name="self-admin-rx-yes-or-no"
+                value="yes-self-admin"
               />
             </div>
+            <!-- no -->
             <div>
-              <label for="dont-collect-data">No</label>
+              <label for="no-self-admin"
+                >No, administer the medication for the client</label
+              >
               <input
                 type="radio"
-                id="dont-collect-data"
-                name="collect-data-yes-or-no"
-                value="dont-collect-data"
-                onclick="generateDataCollectionMethodsInput()"
+                id="no-self-admin"
+                name="self-admin-rx-yes-or-no"
+                value="no-self-admin"
               />
             </div>
-            <div
-              class="data-collection-methods-container"
-              id="data-collection-methods-container"
-            ></div>
           </fieldset>
-          <label for="addtl-psy-info-file"
-            >Please send us any other relevant information regarding this
-            non-<strong><abbr title="Pro re nata">PRN</abbr></strong>
-            psychotropic medication:
-          </label>
-          <input
-            type="file"
-            id="addtl-psy-info-file"
-            name="addtl-psy-info-file"
-            multiple
-          />
-        </div> -->
-        <!-- generateNoPrnAndYesPsyForm END -->
-      </div>
-      <!-- conditional form field END -->
-      <button type="button" onclick="submissionAlert()">SUBMIT</button>
-    </form>
+          <!-- who admin's rx END -->
+        </section>
+        <section class="reason-slash-side-effects">
+          <!-- reason for rx -->
+          <div class="reason-for-rx">
+            <label for="reason-for-rx"
+              >What is the reason for administering this medication?
+              <abbr title="required">*</abbr>
+            </label>
+            <div>
+              <textarea
+                name="reason-for-rx"
+                id="reason-for-rx"
+                cols="40"
+                rows="5"
+              ></textarea>
+            </div>
+          </div>
+          <!-- reason for rx END -->
 
+          <!-- side effects -->
+          <div class="side-fx" id="side-fx">
+            <label for="side-fx-list-input"
+              >What are the side effects of this medication we should be
+              observing for?</label
+            >
+            <input
+              type="text"
+              id="side-fx-list-input"
+              name="side-fx-list-input"
+              placeholder="Type side effect and press 'ENTER'"
+            />
+            <button
+              type="button"
+              class="side-fx-enter"
+              onclick="addListItem(this)"
+            >
+              ENTER
+            </button>
+            <div class="side-fx-items">
+              <ul id="side-fx-list"></ul>
+            </div>
+          </div>
+          <!-- side effects END -->
+        </section>
+        <section class="prn-slash-psychotropic-info">
+          <!-- is PRN -->
+          <fieldset>
+            <legend>
+              Is this medication a
+              <strong><abbr title="Pro re nata">PRN</abbr></strong
+              >?
+              <abbr title="required" aria-label="required">*</abbr>
+            </legend>
+
+            <!-- yes -->
+            <div>
+              <label for="yes-prn">Yes</label>
+              <input
+                type="radio"
+                id="yes-prn"
+                name="prn-yes-or-no"
+                value="yes-prn"
+                onclick="generateConditionalFormFields()"
+                ;
+              />
+            </div>
+            <!-- no -->
+            <div>
+              <label for="no-prn">No</label>
+              <input
+                type="radio"
+                id="no-prn"
+                name="prn-yes-or-no"
+                value="no-prn"
+                onclick="generateConditionalFormFields()"
+              />
+            </div>
+          </fieldset>
+          <!-- is PRN END -->
+
+          <!-- is psychotropic -->
+          <fieldset>
+            <legend>
+              Is this a <strong>psychotropic</strong> medication?
+              <abbr title="required" aria-label="required">*</abbr>
+            </legend>
+
+            <!-- yes -->
+            <div>
+              <label for="yes-psy">Yes</label>
+              <input
+                type="radio"
+                id="yes-psy"
+                name="psy-yes-or-no"
+                value="yes-psy"
+                onclick="generateConditionalFormFields()"
+                ;
+              />
+            </div>
+            <!-- no -->
+            <div>
+              <label for="no-psy">No</label>
+              <input
+                type="radio"
+                id="no-psy"
+                name="psy-yes-or-no"
+                value="no-psy"
+                onclick="generateConditionalFormFields()"
+              />
+            </div>
+          </fieldset>
+          <!-- is psychotropic END -->
+
+          <!-- conditional form field -->
+          <div id="conditional-form-field"></div>
+          <!-- conditional form field END -->
+        </section>
+        <button type="button" onclick="submissionAlert()">SUBMIT</button>
+      </form>
+    </main>
     <!-- NOTE TO SELF: finish "when to take meds" function -->
     <script type="text/javascript" src="main.js"></script>
   </body>
