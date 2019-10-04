@@ -47,22 +47,22 @@
       </p>
 
       <form action="none">
-        <!-- client name field -->
-        <div class="client-name">
-          <label class="border-rad-tl-tr pink-bg label-font" for="client-name"
-            >Client name:
-            <abbr title="required" aria-label="required">*</abbr></label
-          >
-          <input
-            class="body-font"
-            id="client-name"
-            type="text"
-            name="client-name"
-          />
-        </div>
-        <!-- client name field END -->
+        <section class="dosage-info lt-blue-bg">
+          <!-- client name field -->
+          <div class="client-name">
+            <label class="border-rad-tl-tr pink-bg label-font" for="client-name"
+              >Client name:
+              <abbr title="required" aria-label="required">*</abbr></label
+            >
+            <input
+              class="body-font"
+              id="client-name"
+              type="text"
+              name="client-name"
+            />
+          </div>
+          <!-- client name field END -->
 
-        <section class="dosage-info">
           <!-- name of medication field -->
           <div class="rx-name">
             <label class="pink-bg label-font" for="rx-name"
@@ -140,7 +140,9 @@
               <label for="time-of-dose " class="label-font"
                 >At what time(s) should the medication be given?
                 <abbr title="required" aria-label="required">*</abbr></label
-              ><span id="rx-times-input">
+              >
+              <p><strong>Note: </strong>24 hour HH:MM format</p>
+              <span id="rx-times-input">
                 <input
                   type="text"
                   name="time-of-dose"
@@ -148,13 +150,12 @@
                   value="00:00"
                 /><abbr title="required" aria-label="required"> *</abbr>
               </span>
-              <p><strong>Note: </strong>24 hour HH:MM format</p>
             </div>
           </div>
           <!-- dosage unit and quantity field END -->
         </section>
 
-        <section class="addtl-instruction">
+        <section class="addtl-instruction blue-bg">
           <!-- special instructions for rx -->
           <div class="spec-instruct">
             <label for="spec-instruct " class="label-font"
@@ -186,8 +187,9 @@
               ></textarea>
             </div>
           </div>
-          <!-- how long should rx be taken END -->
-
+        </section>
+        <!-- how long should rx be taken END -->
+        <section class="reason-slash-side-effects lt-blue-bg">
           <!-- who admin's rx -->
           <fieldset>
             <legend class="label-font">
@@ -222,8 +224,7 @@
             </div>
           </fieldset>
           <!-- who admin's rx END -->
-        </section>
-        <section class="reason-slash-side-effects">
+
           <!-- reason for rx -->
           <div class="reason-for-rx">
             <label for="reason-for-rx " class="label-font"
@@ -266,7 +267,7 @@
           </div>
           <!-- side effects END -->
         </section>
-        <section class="prn-slash-psychotropic-info">
+        <section class="prn-slash-psychotropic-info blue-bg">
           <!-- is PRN -->
           <fieldset>
             <legend class="label-font">

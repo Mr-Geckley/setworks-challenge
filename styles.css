@@ -3,6 +3,7 @@
   --main-red: #521b22;
   --main-white: #ecf2f0;
   --main-blue: #40476d;
+  --main-lt-blue: #8490d0;
   --main-pink: #ffeef2;
   /* --main-header-font:  */
   --main-header-font: "Be Vietnam", sans-serif;
@@ -63,15 +64,23 @@
 .dark-bg {
   background-color: var(--main-red);
 }
+.lt-blue-bg {
+  background-color: var(--main-lt-blue);
+}
 
+.blue-bg {
+  background-color: var(--main-blue);
+}
 .light-bg {
   background-color: var(--main-white);
 }
 
-.pink-bg {
+/* .pink-bg {
   background-color: var(--main-pink);
+} */
+fieldset {
+  border: 0;
 }
-
 input {
   border-top-right-radius: 25px;
 }
