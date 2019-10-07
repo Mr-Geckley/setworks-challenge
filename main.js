@@ -87,7 +87,7 @@ function generateConditionalFormFields() {
  * called by 'generateConditionalFormFields()'
  */
 function generateYesPrnAndYesPsyForm() {
-  formField.innerHTML = `<div class="prn-criteria" id="prn-criteria">
+  formField.innerHTML = `<div class="prn-criteria form-field" id="prn-criteria">
     <label for="prn-criteria-list-input label-font">
       List the exact criteria for administering the medication as a
       PRN</label
@@ -109,7 +109,7 @@ function generateYesPrnAndYesPsyForm() {
       <ul id="prn-criteria-list"></ul>
     </div>
   </div>
-  <div>
+  <div class="form-field">
     <label for="external-form-file" class="label-font"
       >Upload a completed copy of the ​PRN Psychotropic Behavioral and
       Procedural Criteria
