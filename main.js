@@ -1,5 +1,6 @@
 let numberOfSideFx = 0;
 let formField = document.getElementById("conditional-form-field");
+let numberOfErrors = 0;
 
 /**
  * create and <li> and add it to target <ul>
@@ -12,7 +13,7 @@ function addListItem(x) {
     `${x.parentNode.id}-list-input`
   ).value;
 
-  newListItem.innerHTML = ` ${newListItemContent} <button id="removeButton${numberOfSideFx}" type="button" onClick="removeListItem(this.id)"> REMOVE </button>`;
+  newListItem.innerHTML = ` ${newListItemContent} <button class="rmv_btn" id="removeButton${numberOfSideFx}" type="button" onClick="removeListItem(this.id)"> Remove </button>`;
 
   targetList.appendChild(newListItem);
 
@@ -26,12 +27,14 @@ function addListItem(x) {
 function generateTimePickerInput() {
   var newDiv = document.createElement("DIV");
   newDiv.innerHTML = `<input
-    type="text"
-    name="time-of-dose"
-    pattern="^(0[0-9]|1[0-9]|2[0-3]|[0-9]):[0-5][0-9]$"
-    value="00:00"
-    required
-  /><abbr title="required" aria-label="required">*</abbr>`;
+  type="text"
+  name="time-of-dose"
+  pattern="^(0[0-9]|1[0-9]|2[0-3]|[0-9]):[0-5][0-9]$"
+  placeholder="00:00"
+  onblur="emptyFieldErrMsg(this)"
+  required
+/>
+<p class="err-msg"></p>`;
   return newDiv;
 }
 
@@ -88,7 +91,7 @@ function generateConditionalFormFields() {
  */
 function generateYesPrnAndYesPsyForm() {
   formField.innerHTML = `<div class="prn-criteria form-field" id="prn-criteria">
-    <label for="prn-criteria-list-input label-font">
+    <label for="prn-criteria-list-input" class="label-font">
       List the exact criteria for administering the medication as a
       PRN</label
     >
@@ -96,14 +99,17 @@ function generateYesPrnAndYesPsyForm() {
       type="text"
       id="prn-criteria-list-input"
       name="prn-criteria-list-input"
-      placeholder="Type criteria and press 'ENTER'"
+      placeholder=""
+      required
+      onblur="emptyFieldErrMsg(this)"
     />
+    <p class="err-msg"></p>
     <button
       type="button"
       class="prn-criteria-enter"
       onclick="addListItem(this)"
     >
-      ENTER
+      Add Criteria
     </button>
     <div class="prn-criteria-items">
       <ul id="prn-criteria-list"></ul>
@@ -114,7 +120,8 @@ function generateYesPrnAndYesPsyForm() {
       >Upload a completed copy of the ​PRN Psychotropic Behavioral and
       Procedural Criteria
     </label>
-    <input type="file" id="external-form-file" name="external-form-file" multiple />
+    <input type="file" id="external-form-file" name="external-form-file" onblur="emptyFieldErrMsg(this)"  multiple required/>
+    <p class="err-msg"></p>
 </div>`;
 }
 
@@ -132,14 +139,17 @@ function generateYesPrnAndNoPsyForm() {
       type="text"
       id="prn-criteria-list-input"
       name="prn-criteria-list-input"
-      placeholder="Type criteria and press 'ENTER'"
+      placeholder=""
+      required
+      onblur="emptyFieldErrMsg(this)"
     />
+    <p class="err-msg"></p>
     <button
       type="button"
       class="prn-criteria-enter"
       onclick="addListItem(this)"
     >
-      ENTER
+      Add Criteria
     </button>
     <div class="prn-criteria-items">
       <ul id="prn-criteria-list"></ul>
@@ -163,11 +173,15 @@ function generateNoPrnAndYesPsyForm() {
         id="psy-info-provider"
         type="text"
         name="psy-info-provider"
+        onblur="emptyFieldErrMsg(this)"
+        required
       />
+      <p class="err-msg"></p>
     </div>
     <label for="psy-info-date" class="label-font">Today's date:</label>
 
-    <input type="date" name="psy-info-date" />
+    <input type="date" name="psy-info-date" required/>
+    <p class="err-msg"></p>
 
     <div class="addtl-psy-info" id="addtl-psy-info">
       <label for="addtl-psy-info-list-input" class="label-font">
@@ -178,14 +192,17 @@ function generateNoPrnAndYesPsyForm() {
         type="text"
         id="addtl-psy-info-list-input"
         name="addtl-psy-info-list-input"
-        placeholder="Type criteria and press 'ENTER'"
+        placeholder=""
+        onblur="emptyFieldErrMsg(this)"
+        required
       />
+      <p class="err-msg"></p>
       <button
         type="button"
         class="addtl-psy-info-enter"
         onclick="addListItem(this)"
       >
-        ENTER
+        Add Criteria
       </button>
       <div class="addtl-psy-info-items">
         <ul id="addtl-psy-info-list"></ul>
@@ -207,7 +224,9 @@ function generateNoPrnAndYesPsyForm() {
         name="collect-data-yes-or-no"
         value="yes-collect-data"
         onclick="generateDataCollectionMethodsInput()"
+        required
       />
+      <p class="err-msg"></p>
     </div>
     <!-- no -->
     <div>
@@ -218,7 +237,9 @@ function generateNoPrnAndYesPsyForm() {
         name="collect-data-yes-or-no"
         value="dont-collect-data"
         onclick="generateDataCollectionMethodsInput()"
+        required
       />
+      <p class="err-msg"></p>
     </div>
     <div
       class="data-collection-methods-container"
@@ -235,7 +256,10 @@ function generateNoPrnAndYesPsyForm() {
     id="addtl-psy-info-file"
     name="addtl-psy-info-file"
     multiple
-  />`;
+    onblur="emptyFieldErrMsg(this)"
+    required
+  />
+  <p class="err-msg"></p>`;
 }
 
 /**
@@ -258,7 +282,7 @@ function generateDataCollectionMethodsInput() {
   if (yesCollect.checked) {
     targetElement.innerHTML = `<label for="data-collection-methods" class="label-font"
         >Describe methods for data collection:
-        <abbr title="required">*</abbr>
+        
       </label>
       <div>
         <textarea
@@ -266,7 +290,11 @@ function generateDataCollectionMethodsInput() {
           id="data-collection-methods"
           cols="40"
           rows="5"
+          requried
+          onblur="emptyFieldErrMsg(this)"
         ></textarea>
+        <p class="err-msg"></p>
+
       </div>`;
   } else {
     targetElement.innerHTML = ``;
@@ -276,12 +304,44 @@ function generateDataCollectionMethodsInput() {
 /**
  * generates alert message on form "submission" featuring name if first form field as per requirements
  */
+
 function submissionAlert() {
   var alertMsgSubject = document.getElementById("client-name").value;
-  window.alert(
-    `Thank you, we received the information regarding the medication for ${alertMsgSubject}, you can expect a confirmation email in a few minutes.`
-  );
+  if (numberOfErrors < 1) {
+    window.alert(
+      `Thank you, we received the information regarding the medication for ${alertMsgSubject}, you can expect a confirmation email in a few minutes.`
+    );
+  } else {
+    window.alert(
+      `Please complete all form fields before submitting, thank you.`
+    );
+  }
 }
+
+function emptyFieldErrMsg(inputField) {
+  if (inputField.value == 0) {
+    inputField.nextElementSibling.innerHTML =
+      "Please fill out this field. Thank you.";
+    numberOfErrors++;
+  }
+  if (inputField.value != 0) {
+    inputField.nextElementSibling.innerHTML = "";
+    numberOfErrors--;
+  }
+}
+
+// function emptyTimeErrMsg(inputField) {
+//   if (inputField.value === "00:00") {
+//     inputField.nextElementSibling.innerHTML =
+//       "Please specify a time. Thank you.";
+//     numberOfErrors++;
+//     inputField.innerHTML = "Please specify a time";
+//   }
+//   if (inputField.value != "00:00") {
+//     inputField.nextElementSibling.innerHTML = "";
+//     numberOfErrors--;
+//   }
+// }
 
 function wutevs(x) {
   console.log(`wutevs`);

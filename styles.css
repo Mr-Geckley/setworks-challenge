@@ -4,13 +4,13 @@
   --main-white: #ecf2f0;
   --main-blue: #7f5417;
   --main-lt-blue: #b67721;
-  --main-pink: #ffeef2;
+  --main-pink: #b6212d;
   /* --main-header-font:  */
   --main-header-font: "Be Vietnam", sans-serif;
   /* --main-body-font: "Be Vietnam", sans-serif; */
   --main-body-font: "Roboto Slab", serif;
-  --main-display-font: "Be Vietnam", sans-serif;
-  --main-display-font: "Marcellus", serif;
+  /* --main-display-font: "Be Vietnam", sans-serif; */
+  --main-display-font: "Forum", cursive;
   --main-gold: #b67721;
 }
 * {
@@ -26,9 +26,10 @@
 
 .disp-font {
   font-family: var(--main-display-font);
-  font-weight: 900;
-  text-decoration: underline;
-  color: var(--main-grey);
+  /* font-weight: 900; */
+  /* text-decoration: underline; */
+  color: var(--main-white);
+  margin-top: 4vw;
 }
 
 header {
@@ -36,22 +37,30 @@ header {
   position: absolute;
   /* z-index: 0; */
   width: 100%;
-  height: 35vw;
+  height: 40vw;
+  box-shadow: 0px 20px 42px 3px var(--main-grey);
 }
 form {
   margin-top: 15vw;
 }
 section {
   position: relative;
+  border: 1px solid black;
   /* z-index: +1; */
+  border-radius: 10px;
+  border: 20px solid var(--main-white);
+  box-shadow: inset 0px 0px 0px 1px var(--main-grey);
+  box-sizing: border-box; /* Include padding and border in element's width and height */
+  /* box-shadow: 10px 10px 12px -9px rgba(0, 0, 0, 0.75); */
 }
 
 .head-font {
   font-family: var(--main-header-font);
-  color: var(--main-grey);
+  color: var(--main-white);
+  /* margin-top: 20vw; */
 }
 .gold-bg {
-  background-color: var(--main-gold);
+  background-image: linear-gradient(to bottom right, #ecf2f0, #177f75);
 }
 .label-font {
   font-family: var(--main-body-font);
@@ -72,10 +81,7 @@ section {
   margin-left: 30vw;
   margin-right: 30vw;
 } */
-.reqd-note {
-  margin-bottom: 5vw;
-  text-align: center;
-}
+
 .form-bg-padding {
   padding-left: 10vw;
   padding-right: 10vw;
@@ -124,8 +130,76 @@ fieldset {
 
 input {
   display: block;
+  max-width: 100%;
 }
 
+textarea {
+  max-width: 100%;
+}
+
+form {
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
 svg {
-  width: calc(40px + 8vw);
+  width: calc(20px + 8vw);
+  position: sticky;
+  bottom: -1px;
+  margin-left: -10%;
+  overflow: visible;
+}
+input:focus {
+  box-shadow: 0 0 10px #2a7efc;
+  border: 2px solid var(--main-grey);
+}
+textarea:focus {
+  box-shadow: 0 0 10px #2a7efc;
+  border: 2px solid var(--main-grey);
+}
+button:focus {
+  background-color: #b67721;
+  color: black;
+}
+button {
+  border-radius: 5px;
+  padding: 3px 5px;
+  font-family: var(--main-body-font);
+  color: var(--main-white);
+  background-color: var(--main-pink);
+}
+.rmv_btn {
+  background-color: var(--main-white);
+  color: var(--main-grey);
+}
+#submit_button {
+  float: right;
+}
+.list-enter {
+  display: inline;
+}
+li {
+  list-style-type: none;
+}
+
+.err-msg {
+  color: red;
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+  .disp-font,
+  .head-font {
+    font-size: 4vw;
+  }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+  .disp-font {
+    font-size: 5vw;
+  }
+  .head-font {
+    font-size: 4vw;
+  }
 }
